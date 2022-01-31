@@ -10,12 +10,23 @@ public class Player : MonoBehaviour
     [SerializeField, Tooltip("speed of the char"), Range(0, 20)] private int m_speed = 10;
     [SerializeField, Tooltip("rotation speed"), Range(0, 200)] private int m_rotationSpeed = 100;
     
-    private int m_score = 0;
-    
     // Start is called before the first frame update
     void Start()
     {
-        TestSingleton.m_instance.ChangeScore();
+        
+        
+        Singleton s1 = Singleton.Instance;
+        Singleton s2 = Singleton.Instance;
+
+        if (s1 == s2)
+        {
+            Debug.Log("Singleton works, both variables contain the same instance.");
+        }
+        else
+        {
+            Debug.Log("Singleton failed, variables contain different instances.");
+        }
+        s1.ChangeScore();
     }
 
     // Update is called once per frame

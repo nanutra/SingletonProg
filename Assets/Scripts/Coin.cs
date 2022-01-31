@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            TestSingleton.m_instance.ChangeScore();
+            //Singleton.m_instance.ChangeScore();
             gameObject.SetActive(false);
         }
     }
