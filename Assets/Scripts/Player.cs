@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     private void Start()
     {
-        Debug.LogWarning(ScoreManager.Instance.Score);
+        Debug.LogWarning(ScoreManager.Instance.Score.ToString());
         SpellManager.Instance.Atomisation(Vector3.zero);
     }
 }

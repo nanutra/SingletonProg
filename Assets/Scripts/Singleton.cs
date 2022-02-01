@@ -57,7 +57,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             if(m_instance != this)
             {
                 Destroy(this.gameObject);
-                Debug.LogWarning("Il y a plusieurs Singleton, c'est pas bien !m :(");
+                Debug.LogWarning("Il y a plusieurs Singleton, c'est pas bien ! :(");
             }
 
             return;

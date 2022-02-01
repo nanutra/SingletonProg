@@ -16,7 +16,8 @@ public class SpellManager : Singleton<SpellManager>
     public void Atomisation(Vector3 p_position)
     {
         //instance du prefab
-        GameObject go = Instantiate(m_explosionPrefab,p_position , Quaternion.identity);
+        GameObject go = Instantiate(m_explosionPrefab ,p_position , Quaternion.identity);
+        Debug.Log(go);
         ParticleSystem particleSystem = go.GetComponent<ParticleSystem>();
         particleSystem.Play();
         Debug.Log("Boom");
