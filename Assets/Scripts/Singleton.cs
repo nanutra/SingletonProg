@@ -1,37 +1,67 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-
     //initialisation de l'instance
-    private Singleton() { }
-    private static Singleton m_instance = null;
-    //[SerializeField][Tooltip("text qui va afficher le score")] public Text score;
+    protected static T m_instance = null;
 
-    //variables de la class
-    public int m_score = 3;
-    public static Singleton Instance
+    [SerializeField, Tooltip("continue a exister quand on change de scenes")]
+    private bool m_dontDestroyOnLoad = true;
+    
+    public static T Instance
     {
         get
         {
             // sauveguarde this dans m_instance si la place est libre sinon selfdestruct
             if (m_instance == null)
             {
-                m_instance = new Singleton();
+                CreateInstance();
             }
-
             return m_instance;
         }
     }
 
-    public void ChangeScore()
+    protected static void CreateInstance()
     {
-        m_score += 1 ;
-        //score.text = $"score : {m_score.ToString()}";
+        m_instance = FindObjectOfType<T>();
+        if (m_instance != null)
+        {
+            (m_instance as Singleton<T>).SetSingleton(true);
+            return;
+        }
+
+        GameObject go = new GameObject();
+        m_instance = go.AddComponent<T>();
+
+        (m_instance as Singleton<T>).SetSingleton();
     }
 
+    protected virtual string GetSingletonName()
+    {
+        return "DefaultSingleton";
+    }
+
+    protected virtual void SetSingleton(bool p_rename = false)
+    {
+        if (m_dontDestroyOnLoad)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        if(p_rename) gameObject.name = GetSingletonName();
+    }
+
+    private void Awake()
+    {
+        if (m_instance != null)
+        {
+            if(m_instance != this)
+            {
+                Destroy(this.gameObject);
+                Debug.LogWarning("Il y a plusieurs Singleton, c'est pas bien !m :(");
+            }
+
+            return;
+        }
+        CreateInstance();
+    }
 }
