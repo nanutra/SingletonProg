@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="384c3496-e017-4e11-ad79-f9d12bff9c55" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SingletonProg/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SingletonProg/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Singleton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpellManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpellManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefab/ParticleSystem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefab/ParticleSystem.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
